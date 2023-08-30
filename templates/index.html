@@ -20,6 +20,21 @@
         .then((response) => response.json())
         .then((data) => {
           var ctx = document.getElementById("myChart").getContext("2d");
+
+          function movingAverage(data) {
+              windowSize = 20;
+              const smoothedData = [];
+              
+              for (let i = 0; i < data.length; i++) {
+                const start = Math.max(0, i - Math.floor(windowSize / 2));
+                const end = Math.min(data.length, i + Math.ceil(windowSize / 2));
+                const sum = data.slice(start, end).reduce((acc, value) => acc + value, 0);
+                smoothedData.push(sum / (end - start));
+              }
+              
+              return smoothedData;
+          }    
+
           var myChart = new Chart(ctx, {
             type: "line",
             data: {
@@ -27,21 +42,21 @@
               datasets: [
                 {
                   label: "Negative Sentiments",
-                  data: data.neg,
+                  data: movingAverage(data.neg),
                   borderColor: "red",
                   borderWidth: 2,
                   fill: false,
                 },
                 {
                   label: "Neutral Sentiments",
-                  data: data.neut,
+                  data: movingAverage(data.neut),
                   borderColor: "blue",
                   borderWidth: 2,
                   fill: false,
                 },
                 {
                   label: "Positive Sentiments",
-                  data: data.pos,
+                  data: movingAverage(data.pos),
                   borderColor: "green",
                   borderWidth: 2,
                   fill: false,

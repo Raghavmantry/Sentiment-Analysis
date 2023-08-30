@@ -3,7 +3,6 @@ from pymongo import MongoClient
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-from pymongo import MongoClient
 
 
 def scrapeNinjest():
@@ -13,7 +12,7 @@ def scrapeNinjest():
         'limit': 1000
     }
 
-    since = pd.Timestamp('now', tz='utc') - pd.DateOffset(minutes=10)
+    since = pd.Timestamp('now', tz='utc') - pd.DateOffset(hour=1)
     is_end = False
     results = []
     print("************** Starting data scraping ****************")

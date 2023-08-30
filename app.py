@@ -32,10 +32,6 @@ model= load_model("model_lstm.h5")
 # Now we have to process the given input and predict it using the trained model
 # model_load.predict(X_val)
 
-
-
-
-
 stopwords = list(STOP_WORDS)
 
 # Create the app object
