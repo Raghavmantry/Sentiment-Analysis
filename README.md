@@ -40,8 +40,8 @@ The machine learning model is a sentiment analysis model trained to classify tex
 The frontend is a web-based interface that allows users to input text and receive sentiment predictions. It provides an intuitive way to interact with the sentiment analysis model. The frontend was built using HTML, CSS, and JavaScript.
 
 ## Screenshots
-### Positive Sentiment
-![Positive](path/to/positive_screenshot.png)
+### Sentiment Analysis Trend
+![Positive](static\analysis.png)
 
 ## Background Images
 The background images change dynamically based on the sentiments detected in the analyzed text. Images are sourced from Unsplash.
