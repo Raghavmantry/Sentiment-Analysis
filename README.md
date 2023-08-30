@@ -41,7 +41,7 @@ The frontend is a web-based interface that allows users to input text and receiv
 
 ## Screenshots
 ### Sentiment Analysis Trend
-![Positive](static\analysis.png)
+![Positive](https://raw.githubusercontent.com/Raghavmantry/Sentiment-Analysis/main/static/analysis.png)
 
 ## Background Images
 The background images change dynamically based on the sentiments detected in the analyzed text. Images are sourced from Unsplash.
