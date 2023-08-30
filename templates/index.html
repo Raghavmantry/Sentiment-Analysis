@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Dataset Trend Line Graph</title>
+  </head>
+  <body>
+    <div class="chart-container">
+      <h1>Dataset Trends</h1>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      fetch("{{ url_for('static', filename='data.json') }}")
+        .then((response) => response.json())
+        .then((data) => {
+          var ctx = document.getElementById("myChart").getContext("2d");
+          var myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: data.labels,
+              datasets: [
+                {
+                  label: "Red Line",
+                  data: data.neg,
+                  borderColor: "red",
+                  borderWidth: 2,
+                  fill: false,
+                },
+                {
+                  label: "Blue Line",
+                  data: data.neut,
+                  borderColor: "blue",
+                  borderWidth: 2,
+                  fill: false,
+                },
+                {
+                  label: "Green Line",
+                  data: data.pos,
+                  borderColor: "green",
+                  borderWidth: 2,
+                  fill: false,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+        });
+    </script>
+  </body>
+</html>
