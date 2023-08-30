@@ -41,7 +41,6 @@ The frontend is a web-based interface that allows users to input text and receiv
 
 ## Screenshots
 ### Positive Sentiment
-![Positive](path/to/positive_screenshot.png)
-
+static/Screenshot 2023-08-31 013654.png
 ## Background Images
 The background images change dynamically based on the sentiments detected in the analyzed text. Images are sourced from Unsplash.
